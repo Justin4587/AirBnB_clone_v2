@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Console Module """
+""" Well of course its the console module """
 import cmd
 import sys
 import shlex
@@ -14,7 +14,7 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Contains the functionality for the HBNB console"""
+    """ Contains letters and symbols that when combined """
 
     # determines prompt for interactive/non-interactive modes
     prompt = '(hbnb) ' if sys.__stdin__.isatty() else ''
@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
             print('(hbnb)')
 
     def precmd(self, line):
-        """Reformat command line for advanced command syntax.
+        """ FORM CAPTAIN PLANET mmand syntax.
         Usage: <class name>.<command>([<id> [<*args> or <**kwargs>]])
         (Brackets denote optional fields in usage example.)
         """
@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
                 # isolate _id, stripping quotes
                 _id = pline[0].replace('\"', '')
                 # possible bug here:
-                # empty quotes register as empty _id when replaced
+                # empt This guy went overboard with the note taking
 
                 # if arguments exist beyond _id
                 pline = pline[2].strip()  # pline is now str
@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def help_quit(self):
-        """ Prints the help documentation for quit  """
+        """Not sure what all else I can change in here for it to accept it"""
         print("Exits the program with formatting\n")
 
     def do_EOF(self, arg):
