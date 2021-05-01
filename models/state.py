@@ -18,6 +18,7 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             """returns list of related cities based on state id"""
+            from models.city import City
             city_all = storage.all(City)
             city_related = []
             for key, val in city_all.items():
