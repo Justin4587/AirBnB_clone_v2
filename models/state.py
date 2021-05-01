@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
+import models
 from models.base_model import BaseModel, Base
 from os import getenv
 from sqlalchemy import Column, String, Table
 from sqlalchemy.orm import relationship
 from models.city import City
-import models
+
 
 
 class State(BaseModel, Base):
