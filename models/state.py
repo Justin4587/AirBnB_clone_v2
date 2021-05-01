@@ -14,12 +14,10 @@ class State(BaseModel, Base):
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         cities = relationship("City", cascade="all, delete", backref="state")
     else:
-        name = ""
         
         @property
         def cities(self):
             """returns list of related cities based on state id"""
-            from models import storage
             city_all = storage.all(City)
             city_related = []
             for key, val in city_all.items():
