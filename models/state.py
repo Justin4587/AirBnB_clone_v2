@@ -9,20 +9,18 @@ import models
 
 class State(BaseModel, Base):
     """ State class """
-    __tablename__ = "states"
-
-    if getenv("HBNB_TYPE_STORAGE") != "db":
-        name = ""
-
+    __tablename__ = 'states'
+    name = Column(String(128), nullable=False)
+    if getenv('HBNB_TYPE_STORAGE') == 'db':
+        cities = relationship("City", cascade="all, delete", backref="state")
+    else:
         @property
         def cities(self):
-            """List of cities in that state"""
-            result = []
-            for i in models.storage.all("City").values():
-                if i.state_id == self.id:
-                    result.append(city)
-            return result
-    else:
-        name = Column(String(128), nullable=False)
-        cities = relationship("City", backref="state",
-                              cascade="all, delete, delete-orphan")
+            """returns list of related cities based on state id"""
+            from models import storage
+            city_all = storage.all(City)
+            city_related = []
+            for key, val in city_all.items():
+                if city_all[key].state_id == self.id:
+                    city_related.append(val)
+            return city_related
