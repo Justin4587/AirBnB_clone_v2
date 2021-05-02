@@ -21,6 +21,16 @@ def states_list():
     sort_states = sorted(values, key=attrgetter('name'))
     return render_template('7-states_list.html', states=sort_states)
 
-if __name__ == "__main__":
+
+@app.route('/cities_by_states', strict_slashes=False)
+def cities_too():
     """ doc strings """
+    states = storage.all('State')
+    values = states.values()
+    sort_states = sorted(values, key=attrgetter('name'))
+    return render_template('8-cities_by_states.html', states=sort_states)
+
+
+if __name__ == "__main__":
+    """ doc strings """    
     app.run(host='0.0.0.0', port=5000)
