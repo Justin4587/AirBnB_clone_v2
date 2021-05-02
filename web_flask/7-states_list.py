@@ -7,7 +7,6 @@ from operator import attrgetter
 app = Flask(__name__)
 
 
-
 @app.teardown_appcontext
 def teardown(self):
     """ hello """
