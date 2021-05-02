@@ -16,8 +16,9 @@ def teardown(self):
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
-    states = storage.all('State').values()
-    sort_states = sorted(states, key=attrgetter('name'))
+    states = storage.all('State')
+    values = states.values()
+    sort_states = sorted(values, key=attrgetter('name'))
     return render_template('7-states_list.html', states=sort_states)
 
 if __name__ == "__main__":
