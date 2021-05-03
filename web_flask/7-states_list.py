@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def teardown(self):
-    """ hello """
+    """ hello oh damn is it the one word one """
     storage.close()
 
 
