@@ -15,12 +15,12 @@ def teardown(self):
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
-    """doc strings """
+    """doc strings are terrible and """
     states = storage.all('State')
     values = states.values()
     sort_states = sorted(values, key=attrgetter('name'))
     return render_template('7-states_list.html', states=sort_states)
 
 if __name__ == "__main__":
-    """ doc strings """
+    """ I hate doc strings """
     app.run(host='0.0.0.0', port=5000)
